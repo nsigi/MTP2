@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{37045C74-D3C1-4CDF-9780-D3D520A7E58A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MTP</RootNamespace>
+    <AssemblyName>MTP</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\ParamsHelper.cs" />
+    <Compile Include="Classes\Solver.cs" />
+    <Compile Include="Forms\Drawing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Drawing.Designer.cs">
+      <DependentUpon>Drawing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\InputParams.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\InputParams.Designer.cs">
+      <DependentUpon>InputParams.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Drawing.resx">
+      <DependentUpon>Drawing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InputParams.resx">
+      <DependentUpon>InputParams.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\8068013.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alarm %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bar-chart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cross-out %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-3d-cube-3208614.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-boolean-1488531.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-cancel-747953.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-down-arrow-54785 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-down-arrow-54785 %282%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-font-circle-1-8986082.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-font-circle-2-8986120.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-geometry-3873967.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-information-1173749.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-left-1286997.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-left-12869971.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-maths-830834.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-maths-8308341.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-matrix-3815182.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-minus-747945 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-minus-747945 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-number-1-6912872.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-number-2-3840738.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-number-2-8068070.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-plus-1053155.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-plus-7131330.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-plus-71313301.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-remove-1103640.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-remove-11036401.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-remove-11036402.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-rubik-522052.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-setting-7985250.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-spreadsheet-8445488 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-textbook-2228580 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-textbook-2228580 %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-textbook-2228580.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-vertex-6215571.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fx.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Math Monster %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Math Monster.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\matrix_icon_137416.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MSuBGifZCWZDoTheXG0-Fz2ikobh7ynaR_ZqrixoSL_wYvmE023KFAPz_xRI9qLr42bBXuEjnH8FgFnRct2W2MCz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\params.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\params1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\premium-icon-coordinate-axes-3933184.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\premium-icon-cross-mark-4225670 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\premium-icon-cross-mark-4225670.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\premium-icon-delete-4980599.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\premium-icon-diagonal-arrow-4982982 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\premium-icon-diagonal-arrow-4982982.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\premium-icon-diagonal-arrow-49829821.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\premium-icon-expand-arrows-6066782.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\premium-icon-geometry-5369904.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\premium-icon-integral-4872805.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\premium-icon-matrix-4872235.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\premium-icon-maximize-4979885.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\premium-icon-maximize-49798851.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\premium-icon-menu-4980554.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\premium-icon-menu-5835239 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\premium-icon-menu-5835239.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\premium-icon-menu-49805541.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\premium-icon-minus-sign-4980136 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\premium-icon-minus-sign-4980136.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\premium-icon-numbers-709337.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\premium-icon-numbers-3279274.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\premium-icon-plus-2549959.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\premium-icon-plus-sign-4980439 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\premium-icon-plus-sign-4980439 %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\premium-icon-plus-sign-4980439.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\premium-icon-reference-3476029.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\premium-icon-remove-4980246 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\premium-icon-remove-4980246 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\premium-icon-remove-4980246 %282%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\premium-icon-remove-4980246.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\premium-icon-turn-right-4979908 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\premium-icon-turn-right-4979908.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\premium-icon-turn-right-49799081.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shopping-cart %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shopping-list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\value %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\value.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Безымянный.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
