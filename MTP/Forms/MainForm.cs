@@ -38,91 +38,10 @@ namespace MTP.Forms
 			OpenChildForm(new Drawing(), this);
 		}
 
-		private void ReturnToTask()
-		{
-			if (actionButton != null)
-				actionButton = null;
-			lblTitle.Text = taskButton.Text;
-		}
-
-		private void Reset()
-		{
-			lblTitle.Text = "Моделирование теплового процесса";
-			panelTitleBar.BackColor = Color.FromArgb(0, 150, 136);
-			panelLogo.BackColor = Color.FromArgb(39, 39, 58);
-		}
-
-		private void SelectTaskButton(object sender)
-		{
-			if (taskButton == null)
-			{
-				taskButton = sender as Button;
-			}
-			else
-			{
-				if (taskButton == sender)
-				{
-					ReturnToTask();
-					taskButton = null;
-					Reset();
-					if (activeForm != null)
-					{
-						activeForm.Close();
-						activeForm = null;
-					}
-				}
-				else if (taskButton != sender)
-				{
-					ReturnToTask();
-					taskButton = sender as Button;
-					if (activeForm != null)
-					{
-						activeForm.Close();
-						activeForm = null;
-					}
-				}
-			}
-		}
-
 		private void btnParams_Click(object sender, EventArgs e)
 		{
 			var InputForm = new InputParams();
 			InputForm.Show();
-		}
-
-		private void btnDraw_Click(object sender, EventArgs e)
-		{
-			OpenChildForm(new Drawing(), sender);
-		}
-		private void btnRollUp_Click(object sender, EventArgs e)
-		{
-			if (menuIsHided)
-			{
-				panelMenu.Visible = true;
-				menuIsHided = false;
-			}
-			else
-			{
-				panelMenu.Visible = false;
-				menuIsHided = true;
-			}
-		}
-
-		private void btnMinimaze_Click(object sender, EventArgs e)
-		{
-			WindowState = FormWindowState.Minimized;
-		}
-
-		private void btnMaximize_Click(object sender, EventArgs e)
-		{
-			if (WindowState == FormWindowState.Normal)
-			{
-				WindowState = FormWindowState.Maximized;
-			}
-			else
-			{
-				WindowState = WindowState = FormWindowState.Normal;
-			}
 		}
 
 		private void btnCLose_Click(object sender, EventArgs e)
@@ -148,18 +67,6 @@ namespace MTP.Forms
 			ChildForm.BringToFront();
 			ChildForm.Show();
 			lblTitle.Text = ChildForm.Text;
-		}
-
-        private void panelTitleBar_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void CheckButtons()
-		{
-			actionButton = null;
-			taskButton = null;
-			Reset();
 		}
 	}
 }

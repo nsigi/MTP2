@@ -11,47 +11,52 @@ namespace MTP.Classes
 		public double h_t { get; set; }
 		public double Beta { get; set; }
         public double Gamma { get; set; }
+        public bool Stability { get; set; }
         public double h { get; set; }
         public double[,] V { get; set; }
         public double[] Xarr { get; set; }
         public double[] Tarr { get; set; }
 
-        public void Init()
+        public bool Init()
         {
             Beta = ParamsHelper.k / ParamsHelper.c;
             h_x = ParamsHelper.l_x / ParamsHelper.I_x;
             h_t  = ParamsHelper.T / ParamsHelper.K_t;
             Gamma = (Beta * h_t) / Math.Pow(h_x, 2);
             h = ParamsHelper.Alpha/ ParamsHelper.k;
-
             V = new double[ParamsHelper.K_t + 1, ParamsHelper.I_x + 1];
             Xarr = GetArrH(ParamsHelper.I_x + 1, h_x);
             Tarr = GetArrH(ParamsHelper.K_t + 1, h_t);
+            //I^2 <= l_x^2 / (2 * beta * T) * K
+            return Math.Pow(ParamsHelper.I_x, 2) <= (ParamsHelper.K_t * Math.Pow(ParamsHelper.l_x, 2) / (2 * Beta * ParamsHelper.T));
         }
 
         public Solver()
         {
-            Init();
-            //нач условие
-            for (int i = 0; i < ParamsHelper.I_x + 1; ++i)
+            Stability = Init();
+            if (Stability)
             {
-                V[0, i] = Psi(Xarr[i]);
-            }
-
-            for (int k = 1; k < ParamsHelper.K_t + 1; ++k)
-            {
-                //внутренние узлы
-                for (int i = 1; i < ParamsHelper.I_x; ++i)
+                //нач условие
+                for (int i = 0; i < ParamsHelper.I_x + 1; ++i)
                 {
-                    V[k, i] = FindNode(k - 1, i);
+                    V[0, i] = Psi(Xarr[i]);
                 }
 
-                // граничные узлы
-                var bordCoef = (1 + h * h_x);
-                // i = 0
-                V[k, 0] = V[k, 1] / bordCoef;
-                // i = I
-                V[k, ParamsHelper.I_x] = V[k, ParamsHelper.I_x - 1] / bordCoef;
+                for (int k = 1; k < ParamsHelper.K_t + 1; ++k)
+                {
+                    //внутренние узлы
+                    for (int i = 1; i < ParamsHelper.I_x; ++i)
+                    {
+                        V[k, i] = FindNode(k - 1, i);
+                    }
+
+                    // граничные узлы
+                    var bordCoef = (1 + h * h_x);
+                    // i = 0
+                    V[k, 0] = V[k, 1] / bordCoef;
+                    // i = I
+                    V[k, ParamsHelper.I_x] = V[k, ParamsHelper.I_x - 1] / bordCoef;
+                }
             }
         }
 

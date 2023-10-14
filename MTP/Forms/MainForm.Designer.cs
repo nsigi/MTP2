@@ -178,7 +178,6 @@
             this.btnMinimaze.Size = new System.Drawing.Size(48, 49);
             this.btnMinimaze.TabIndex = 3;
             this.btnMinimaze.UseVisualStyleBackColor = true;
-            this.btnMinimaze.Click += new System.EventHandler(this.btnMinimaze_Click);
             // 
             // btnMaximize
             // 
@@ -195,7 +194,6 @@
             this.btnMaximize.Size = new System.Drawing.Size(48, 49);
             this.btnMaximize.TabIndex = 4;
             this.btnMaximize.UseVisualStyleBackColor = true;
-            this.btnMaximize.Click += new System.EventHandler(this.btnMaximize_Click);
             // 
             // panelTitleBar
             // 
@@ -210,7 +208,6 @@
             this.panelTitleBar.Name = "panelTitleBar";
             this.panelTitleBar.Size = new System.Drawing.Size(1602, 108);
             this.panelTitleBar.TabIndex = 11;
-            this.panelTitleBar.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTitleBar_Paint);
             this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
             // 
             // MainForm
